@@ -11,5 +11,5 @@ dist/
 .keys*/
 .keys*/**
 
-.env
 refs/
+config.bat

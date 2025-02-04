@@ -8,10 +8,10 @@
   "types": "dist/cjs/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist/ && npm run build:node && npm run build:browser",
-    "build:node": "tsc && tsc -p tsconfig.cjs.json",
-    "build:browser": "rollup -c rollup.config.js --bundleConfigAsCjs",
-    "start": "npx ts-node ./example/basic/index.ts"
+    "build": "node api.js && rimraf dist/ && npm run build:node && npm run build:browser",
+    "build:node": "node api.js && tsc && tsc -p tsconfig.cjs.json",
+    "build:browser": "node api.js && rollup -c rollup.config.js --bundleConfigAsCjs",
+    "start": "node api.js && npx ts-node ./example/basic/index.ts"
   },
   "files": [
     "dist",
