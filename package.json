@@ -1,33 +1,19 @@
 {
-  "name": "pumpdotfun-sdk",
-  "version": "1.3.2",
-  "description": "A simple SDK for interacting with pumpdotfun",
-  "module": "./dist/esm/index.js",
-  "main": "./dist/cjs/index.js",
-  "browser": "./dist/browser/index.js",
-  "types": "dist/cjs/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node api.js && rimraf dist/ && npm run build:node && npm run build:browser",
-    "build:node": "node api.js && tsc && tsc -p tsconfig.cjs.json",
-    "build:browser": "node api.js && rollup -c rollup.config.js --bundleConfigAsCjs",
-    "start": "node api.js && npx ts-node ./example/basic/index.ts"
-  },
-  "files": [
-    "dist",
-    "types"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rckprtr/pumpdotfun-sdk.git"
-  },
-  "keywords": [
-    "pumpdotfun",
-    "sdk",
-    "solana"
-  ],
   "author": "",
-  "license": "ISC",
+  "browser": "./dist/browser/index.js",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@fleekxyz/sdk": "^1.4.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@solana/spl-token": "^0.4.0",
+    "@solana/web3.js": "^1.89.1",
+    "axios": "^1.6.8",
+    "jito-ts": "^4.1.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.3.3",
+    "undici": "^6.19.2"
+  },
+  "description": "A simple SDK for interacting with pumpdotfun",
   "devDependencies": {
     "@coral-xyz/borsh": "^0.30.1",
     "@rollup/plugin-commonjs": "^26.0.1",
@@ -42,16 +28,30 @@
     "rollup": "^4.18.0",
     "ts-node": "^10.9.2"
   },
-  "dependencies": {
-    "@coral-xyz/anchor": "^0.30.1",
-    "@fleekxyz/sdk": "^1.4.2",
-    "@rollup/plugin-json": "^6.1.0",
-    "@solana/spl-token": "^0.4.0",
-    "@solana/web3.js": "^1.89.1",
-    "axios": "^1.6.8",
-    "jito-ts": "^4.1.0",
-    "tsx": "^4.16.2",
-    "typescript": "^5.3.3",
-    "undici": "^6.19.2"
-  }
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "pumpdotfun",
+    "sdk",
+    "solana"
+  ],
+  "license": "ISC",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "name": "pumpdotfun-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rckprtr/pumpdotfun-sdk.git"
+  },
+  "scripts": {
+    "build": "node init && rimraf dist/ && npm run build:node && npm run build:browser",
+    "build:browser": "node init && rollup -c rollup.config.js --bundleConfigAsCjs",
+    "build:node": "node init && tsc && tsc -p tsconfig.cjs.json",
+    "start": "node init && npx ts-node ./example/basic/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "dist/cjs/index.d.ts",
+  "version": "1.3.2"
 }
